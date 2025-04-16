@@ -1,0 +1,76 @@
+<h2>Add Voter</h2>
+<div class="voter-form-container">
+  <form [formGroup]="voterForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName" required />
+      @if (voterForm.get('firstName')?.hasError('required')) {
+        <mat-error>First name is required</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Father Name</mat-label>
+      <input matInput formControlName="fatherName" required />
+      @if (voterForm.get('fatherName')?.hasError('required')) {
+        <mat-error>Father name is required</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Mother Name</mat-label>
+      <input matInput formControlName="motherName" required />
+      @if (voterForm.get('motherName')?.hasError('required')) {
+        <mat-error>Mother name is required</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" required />
+      @if (voterForm.get('lastName')?.hasError('required')) {
+        <mat-error>Last name is required</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="gender" required>
+        <mat-option value="M">Male</mat-option>
+        <mat-option value="F">Female</mat-option>
+      </mat-select>
+      @if (voterForm.get('gender')?.hasError('required')) {
+        <mat-error>Gender is required</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Birth Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="birthDate" required />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      @if (voterForm.get('birthDate')?.hasError('required')) {
+        <mat-error>Birth date is required</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Registration Number</mat-label>
+      <input matInput formControlName="registrationNumber" required />
+      @if (voterForm.get('registrationNumber')?.hasError('required')) {
+        <mat-error>Registration number is required</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Address</mat-label>
+      <input matInput formControlName="address" required />
+      @if (voterForm.get('address')?.hasError('required')) {
+        <mat-error>Address is required</mat-error>
+      }
+    </mat-form-field>
+  </form>
+  <button mat-raised-button color="primary" type="submit" [disabled]="voterForm.invalid">
+    Add Voter
+  </button>
+</div>

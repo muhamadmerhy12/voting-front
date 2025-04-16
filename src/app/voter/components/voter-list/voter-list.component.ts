@@ -1,6 +1,4 @@
 import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
-import {VotingService} from '../services/voting.service';
-import {VoterDto} from '../models/voter-dto';
 import {lastValueFrom} from 'rxjs';
 import {
   MatCell,
@@ -22,8 +20,10 @@ import {MatIcon} from '@angular/material/icon';
 import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort, MatSortModule} from '@angular/material/sort';
-import {ConfirmationDialogComponent} from '../shared/app-confirmation-dialog/app-confirmation-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
+import {VoterDto} from '../../../models/voter-dto';
+import {VotingService} from '../../../services/voting.service';
+import {ConfirmationDialogComponent} from '../../../shared/app-confirmation-dialog/app-confirmation-dialog.component';
 
 @Component({
   selector: 'app-voter-list',
