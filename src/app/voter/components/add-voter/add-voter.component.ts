@@ -11,6 +11,8 @@ import {MatDatepickerModule, MatDatepickerToggle} from '@angular/material/datepi
 import { MatNativeDateModule } from '@angular/material/core'; // For native date functionality=
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {NavMenuComponent} from '../../../nav-menu/nav-menu.component';
+import {TranslocoPipe} from '@ngneat/transloco';
 
 @Component({
   selector: 'app-add-voter',
@@ -27,6 +29,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatDatepickerToggle,
     MatIconModule,
     MatCheckboxModule,
+    TranslocoPipe,
   ],
   templateUrl: './add-voter.component.html',
   styleUrls: ['./add-voter.component.css'],
