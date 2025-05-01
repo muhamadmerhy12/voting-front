@@ -1,20 +1,19 @@
 APP_NAME=voting-front
-REGION=eu-north-1
-ECR_REPO=850995549906.dkr.ecr.eu-north-1.amazonaws.com/voting-app/$(APP_NAME)
+DOCKERHUB_USERNAME=201809mohmerhy
+DOCKERHUB_REPO=$(DOCKERHUB_USERNAME)/$(APP_NAME)
 IMAGE_TAG=latest
-DOCKER_IMAGE=$(ECR_REPO):$(IMAGE_TAG)
+DOCKER_IMAGE=$(DOCKERHUB_REPO):$(IMAGE_TAG)
 
-.PHONY: all docker-build push-ecr
+.PHONY: all docker-build push-hub
 
-all: docker-build push-ecr
+all: docker-build push-hub
 
 docker-build:
 	@echo "Building Docker image..."
 	docker build -t $(DOCKER_IMAGE) .
 
-# Push Docker image to ECR
-push-ecr:
-	@echo "Pushing Docker image to ECR..."
-	aws ecr get-login-password --region $(REGION) | docker login --username AWS --password-stdin $(ECR_REPO)
+# Push Docker image to Docker Hub
+push-hub:
+	@echo "Pushing Docker image to Docker Hub..."
+	echo "$$DOCKERHUB_TOKEN" | docker login -u $(DOCKERHUB_USERNAME) --password-stdin
 	docker push $(DOCKER_IMAGE)
-

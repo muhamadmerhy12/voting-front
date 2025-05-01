@@ -11,8 +11,7 @@ import {MatDatepickerModule, MatDatepickerToggle} from '@angular/material/datepi
 import { MatNativeDateModule } from '@angular/material/core'; // For native date functionality=
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import {NavMenuComponent} from '../../../nav-menu/nav-menu.component';
-import {TranslocoPipe} from '@ngneat/transloco';
+import {VotingService} from '../../../services/voting.service';
 
 @Component({
   selector: 'app-add-voter',
@@ -28,8 +27,7 @@ import {TranslocoPipe} from '@ngneat/transloco';
     MatNativeDateModule,
     MatDatepickerToggle,
     MatIconModule,
-    MatCheckboxModule,
-    TranslocoPipe,
+    MatCheckboxModule
   ],
   templateUrl: './add-voter.component.html',
   styleUrls: ['./add-voter.component.css'],
@@ -37,7 +35,7 @@ import {TranslocoPipe} from '@ngneat/transloco';
 export class AddVoterComponent {
   voterForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private votingService: VotingService) {
     this.voterForm = this.fb.group({
       firstName: ['', Validators.required],
       fatherName: ['', Validators.required],
@@ -53,7 +51,7 @@ export class AddVoterComponent {
 
   onSubmit() {
     if (this.voterForm.valid) {
-      console.log('Form Submitted:', this.voterForm.value);
+      // this.votingService.
     }
   }
 }

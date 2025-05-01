@@ -22,4 +22,5 @@ export class VotingService {
   updateVotingStatus(id: number | undefined): Observable<void> {
     return this.http.patch<void>(`${this.voterUrl}/has-voted/${id}`, null);
   }
+  
 }
